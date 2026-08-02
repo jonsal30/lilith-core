@@ -1,0 +1,90 @@
+version: 1
+updated: 2026-08-02
+authority: John
+
+precedence:
+  - LILITH.md
+  - decisions/accepted/
+  - blueprint/
+  - CURRENT_STATE.md
+  - organizations/
+  - workflows/
+  - ops/
+  - history/thread-reconciliations/
+
+contexts:
+  lilith_identity:
+    canonical:
+      - LILITH.md
+      - blueprint/00-purpose-and-identity.md
+    priority: critical
+
+  current_state:
+    canonical:
+      - CURRENT_STATE.md
+    priority: critical
+
+  execution_model:
+    canonical:
+      - blueprint/01-operating-doctrine.md
+      - workflows/closed-loop-execution.md
+      - ops/registries/approval-queue.md
+    priority: critical
+
+  architecture:
+    canonical:
+      - blueprint/02-system-architecture.md
+      - blueprint/03-memory-and-context.md
+    priority: high
+
+  authority_and_approvals:
+    canonical:
+      - blueprint/04-authority-and-approvals.md
+      - ops/registries/approval-queue.md
+    priority: critical
+
+  mobile_operator:
+    canonical:
+      - blueprint/06-mobile-operator.md
+      - workflows/mobile-messaging.md
+      - agents/mobile-operator.md
+    priority: high
+
+  gh_service_group:
+    canonical:
+      - organizations/gh-service-group/role-of-lilith.md
+      - organizations/gh-service-group/handoff-plan.md
+    exclusions:
+      - organizations/garza-group/
+    priority: high
+
+  garza_group:
+    canonical:
+      - organizations/garza-group/boundaries.md
+    exclusions:
+      - organizations/gh-service-group/
+    priority: high
+
+  jaravon:
+    canonical:
+      - organizations/jaravon/relationship-to-lilith.md
+    priority: medium
+
+  cova_os:
+    canonical:
+      - organizations/cova-os/product-boundary.md
+    priority: medium
+
+  historical_threads:
+    canonical:
+      - history/thread-reconciliations/
+    authority: supporting_only
+    priority: low
+
+rules:
+  - Newer does not automatically mean authoritative.
+  - Pending proposals do not override accepted decisions.
+  - Raw conversations are evidence, not canonical truth.
+  - Retrieve the smallest relevant context set for the task.
+  - Never cross organization boundaries unless John explicitly authorizes it.
+  - Do not store credentials, secrets, PII, health records, or legal records in this repository.
